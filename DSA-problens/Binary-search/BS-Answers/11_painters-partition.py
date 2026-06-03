@@ -10,6 +10,8 @@ A = 2
 B = 5
 C = [1, 10]
 
+#Time Complexity: O(N × log(sum(C)))
+# Space Complexity: O(1)
 def is_possible(painters,time,time_per_board,board_arr):
     painters_count=1
     time_sum=0
@@ -26,7 +28,7 @@ def is_possible(painters,time,time_per_board,board_arr):
     else:
         return False
 
-def brute(painters,time_per_board,board_arr):
+def optimal(painters,time_per_board,board_arr):
     low=max(board_arr)*time_per_board
     high=sum(board_arr)*time_per_board
     while low<=high:
@@ -37,4 +39,4 @@ def brute(painters,time_per_board,board_arr):
             low=mid+1
     return low % 10000003
 
-print(brute(A,B,C))
+print(optimal(A,B,C))
