@@ -10,8 +10,8 @@ matrix = [[1,3,5,7],
           [23,30,34,60]]
 target = 3
 
+#TC= O(m*log(n)) SC=O(1)
 def better(matrix,target):
-    
     for i in range(len(matrix)):
         low=0
         high=len(matrix[i])-1
@@ -26,6 +26,25 @@ def better(matrix,target):
     return False
 print(better(matrix,target))
 
+
+#TC= O(m) + O(log n), SC=O(1)
+def better2(matrix,target):
+    for i in range(len(matrix)):
+        if target >= matrix[i][0] and target<= matrix[i][-1]:
+            low=0
+            high=len(matrix[i])-1
+            while low<=high:
+                mid=(low+high)//2
+                if matrix[i][mid]==target:
+                    return True
+                elif matrix[i][mid]<target:
+                    low=mid+1
+                else:
+                    high=mid-1
+    return False
+print(better2(matrix,target))
+
+#TC= O(log m)+O(log n) => O(log(m*n))
 def optimal(matrix,target):
     lowr=0
     highr=len(matrix)-1
@@ -51,7 +70,25 @@ def optimal(matrix,target):
             return False
     return False
 print(optimal(matrix,target))
-            
-        
+ 
+#TC= O(log m*n)          
+def optimal2(matrix,target):
+    m=len(matrix)
+    n=len(matrix[0])
+    low=0
+    high=(m*n)-1
+    while low<=high:
+        mid=(low+high)//2
+        row=mid//m
+        col=mid%m
+        if target==matrix[row][col]:
+            return True
+        elif target>matrix[row][col]:
+            low=mid+1
+        else:
+            high=mid-1
+    return False
+
+print(optimal2(matrix,target))
         
             
