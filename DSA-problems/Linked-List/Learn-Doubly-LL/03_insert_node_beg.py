@@ -29,11 +29,11 @@ def print_dll(head):
     print("None")
     
 def insert_node_beg(head,value):
-    if value is None:
-        return head
-    
     if head is None:
         return None
+    
+    if value is None:
+        return head
     
     new_node=Node(value)
     
