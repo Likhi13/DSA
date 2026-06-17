@@ -58,3 +58,24 @@ h=convert_arr(head)
 print_ll(h)
 middle=middle_of_ll2(h)
 print(middle)
+
+'''slow
+ |
+ v
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+ ^
+ |
+fast
+
+IT:1
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+     S    F
+     
+IT:2
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+          S         F
+
+IT:3
+1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
+               S              F
+s returned '''
